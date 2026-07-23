@@ -31,6 +31,10 @@ st.markdown(
       padding: 1.3rem; box-shadow: 0 8px 24px rgba(7,59,76,.07);}
     div[data-testid="stMetric"] {background: rgba(255,255,255,.82); border: 1px solid #dceae8;
       padding: 1rem; border-radius: 15px;}
+    #MainMenu, footer {visibility: hidden;}
+    [data-testid="stToolbar"] {display: none;}
+    .brand-footer {text-align: center; color: #52706f; font-size: .9rem;
+      padding: 2.5rem 0 1rem;}
     </style>
     """,
     unsafe_allow_html=True,
@@ -89,6 +93,12 @@ st.markdown(
     </div>
     """,
     unsafe_allow_html=True,
+)
+
+st.link_button(
+    "View source on GitHub",
+    "https://github.com/AzwarMehmood/Solubility_Prediction_App",
+    icon="🔗",
 )
 
 if page == "Single molecule":
@@ -184,4 +194,7 @@ else:
         """
     )
 
-st.caption("Built with Streamlit · Molecular descriptors powered by RDKit")
+st.markdown(
+    '<div class="brand-footer">Powered by <strong>Azwar AI</strong></div>',
+    unsafe_allow_html=True,
+)
