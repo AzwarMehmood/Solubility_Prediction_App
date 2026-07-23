@@ -2,6 +2,10 @@
 
 A deployment-ready Streamlit application that estimates aqueous solubility directly from a molecular SMILES string. It implements the interpretable four-descriptor ESOL equation published by Delaney and calculates descriptors with RDKit.
 
+## Live demo
+
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://solubilitypredictionapp-2mwbth3ham8rkic8jpj9f9.streamlit.app/)
+
 ## Features
 
 - Single-molecule prediction from SMILES
@@ -59,26 +63,11 @@ pip install pytest
 pytest -q
 ```
 
-## Deploy on Streamlit Community Cloud
+## Deployment
 
-1. Sign in at [share.streamlit.io](https://share.streamlit.io/) with GitHub.
-2. Choose **Create app** and select this repository.
-3. Set the branch to `master` (or the merged feature branch) and the entry point to `solubility_app.py`.
-4. Deploy. Streamlit installs the packages in `requirements.txt` automatically.
+AquaSol is available on Streamlit Community Cloud. The repository also includes an optional Docker Compose and Caddy configuration for self-hosting.
 
-For a memorable URL, open **Manage app → Settings → General** and request
-`aquasol.streamlit.app` (subject to availability).
-
-## Deploy on your own server
-
-The repository includes a production Docker Compose setup with Caddy handling HTTPS automatically.
-
-1. Point an `A`/`AAAA` DNS record for `aquasol.azwarai.com` to the server.
-2. Copy `.env.example` to `.env` and confirm the domain.
-3. Allow inbound TCP ports 80 and 443.
-4. Run `docker compose up -d --build`.
-
-See [SELF_HOSTING.md](SELF_HOSTING.md) for setup, verification, updates, logs, and rollback guidance.
+See [SELF_HOSTING.md](SELF_HOSTING.md) for the complete self-hosting guide.
 
 ## License
 
