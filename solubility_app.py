@@ -31,8 +31,7 @@ st.markdown(
       padding: 1.3rem; box-shadow: 0 8px 24px rgba(7,59,76,.07);}
     div[data-testid="stMetric"] {background: rgba(255,255,255,.82); border: 1px solid #dceae8;
       padding: 1rem; border-radius: 15px;}
-    #MainMenu, footer {visibility: hidden;}
-    [data-testid="stToolbar"] {display: none;}
+    footer {visibility: hidden;}
     .brand-footer {text-align: center; color: #52706f; font-size: .9rem;
       padding: 2.5rem 0 1rem;}
     </style>
