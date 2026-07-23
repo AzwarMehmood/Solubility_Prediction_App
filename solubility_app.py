@@ -6,7 +6,6 @@ import io
 
 import pandas as pd
 import streamlit as st
-import streamlit.components.v1 as components
 from rdkit.Chem import Draw
 
 from solubility_model import SolubilityPrediction, predict_solubility
@@ -82,20 +81,20 @@ def result_panel(prediction: SolubilityPrediction) -> None:
         d4.metric("Aromatic proportion", f"{prediction.aromatic_proportion:.2f}")
         st.markdown("</div>", unsafe_allow_html=True)
 
-    components.html(
+    st.html(
         """
-        <button onclick="window.parent.print()" aria-label="Print prediction results">
+        <button class="print-results-button" onclick="window.print()" aria-label="Print prediction results">
           Print results
         </button>
         <style>
-          button {width: 100%; padding: .72rem 1rem; border: 1px solid #087e8b;
+          .print-results-button {width: 100%; padding: .72rem 1rem; border: 1px solid #087e8b;
             border-radius: .5rem; background: white; color: #087e8b; cursor: pointer;
             font: 600 1rem sans-serif;}
-          button:hover {background: #e8f3f1;}
-          @media print {button {display: none;}}
+          .print-results-button:hover {background: #e8f3f1;}
+          @media print {.print-results-button {display: none;}}
         </style>
         """,
-        height=52,
+        unsafe_allow_javascript=True,
     )
 
 
