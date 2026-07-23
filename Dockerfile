@@ -7,7 +7,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
 
 RUN apt-get update \
-    && apt-get install --no-install-recommends -y libxrender1 \
+    && apt-get install --no-install-recommends -y libexpat1 libxext6 libxrender1 \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
