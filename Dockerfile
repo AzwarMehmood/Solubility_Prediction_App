@@ -16,6 +16,10 @@ COPY requirements.txt ./
 RUN pip install --upgrade pip \
     && pip install -r requirements.txt
 
+COPY customize_streamlit_html.py ./
+RUN python customize_streamlit_html.py \
+    && rm customize_streamlit_html.py
+
 COPY .streamlit ./.streamlit
 COPY solubility_app.py solubility_model.py ./
 
