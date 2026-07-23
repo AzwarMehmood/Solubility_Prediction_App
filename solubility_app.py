@@ -83,7 +83,7 @@ def result_panel(prediction: SolubilityPrediction) -> None:
 
     st.html(
         """
-        <button class="print-results-button" onclick="window.print()" aria-label="Print prediction results">
+        <button id="print-results-button" class="print-results-button" aria-label="Print prediction results">
           Print results
         </button>
         <style>
@@ -93,6 +93,11 @@ def result_panel(prediction: SolubilityPrediction) -> None:
           .print-results-button:hover {background: #e8f3f1;}
           @media print {.print-results-button {display: none;}}
         </style>
+        <script>
+          document.getElementById("print-results-button").addEventListener("click", () => {
+            window.print();
+          });
+        </script>
         """,
         unsafe_allow_javascript=True,
     )
