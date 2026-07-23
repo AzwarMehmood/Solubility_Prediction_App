@@ -6,6 +6,7 @@ import io
 
 import pandas as pd
 import streamlit as st
+import streamlit.components.v1 as components
 from rdkit.Chem import Draw
 
 from solubility_model import SolubilityPrediction, predict_solubility
@@ -31,9 +32,18 @@ st.markdown(
       padding: 1.3rem; box-shadow: 0 8px 24px rgba(7,59,76,.07);}
     div[data-testid="stMetric"] {background: rgba(255,255,255,.82); border: 1px solid #dceae8;
       padding: 1rem; border-radius: 15px;}
-    footer {visibility: hidden;}
+    #MainMenu, footer {visibility: hidden;}
     .brand-footer {text-align: center; color: #52706f; font-size: .9rem;
       padding: 2.5rem 0 1rem;}
+    @media print {
+      [data-testid="stSidebar"], [data-testid="stHeader"],
+      [data-testid="stForm"], [data-testid="stLinkButton"],
+      .brand-footer, footer {display: none !important;}
+      .stApp {background: white !important;}
+      .block-container {padding-top: 0 !important; max-width: 100% !important;}
+      .hero {box-shadow: none; print-color-adjust: exact; -webkit-print-color-adjust: exact;}
+      .result-card {box-shadow: none; break-inside: avoid;}
+    }
     </style>
     """,
     unsafe_allow_html=True,
@@ -71,6 +81,22 @@ def result_panel(prediction: SolubilityPrediction) -> None:
         d3.metric("Rotatable bonds", str(prediction.rotatable_bonds))
         d4.metric("Aromatic proportion", f"{prediction.aromatic_proportion:.2f}")
         st.markdown("</div>", unsafe_allow_html=True)
+
+    components.html(
+        """
+        <button onclick="window.parent.print()" aria-label="Print prediction results">
+          Print results
+        </button>
+        <style>
+          button {width: 100%; padding: .72rem 1rem; border: 1px solid #087e8b;
+            border-radius: .5rem; background: white; color: #087e8b; cursor: pointer;
+            font: 600 1rem sans-serif;}
+          button:hover {background: #e8f3f1;}
+          @media print {button {display: none;}}
+        </style>
+        """,
+        height=52,
+    )
 
 
 with st.sidebar:
