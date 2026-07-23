@@ -12,7 +12,7 @@ from solubility_model import SolubilityPrediction, predict_solubility
 
 
 st.set_page_config(
-    page_title="Aqosoul AzwarAI | Molecular Solubility",
+    page_title="AquaSol | Molecular Solubility",
     page_icon="💧",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -71,7 +71,7 @@ def result_panel(prediction: SolubilityPrediction) -> None:
 
 
 with st.sidebar:
-    st.markdown("## 💧 Aqosoul AzwarAI")
+    st.markdown("## 💧 AquaSol")
     st.caption("Fast, structure-only aqueous solubility estimates")
     st.divider()
     page = st.radio("Workspace", ["Single molecule", "Batch prediction", "About the model"])
@@ -84,7 +84,7 @@ with st.sidebar:
 st.markdown(
     """
     <div class="hero">
-      <h1>Aqosoul <span style="opacity:.72">by AzwarAI</span></h1>
+      <h1>AquaSol</h1>
       <p>Turn a molecular structure into an interpretable aqueous-solubility estimate in seconds.</p>
     </div>
     """,
@@ -168,7 +168,7 @@ else:
     st.subheader("About the model")
     st.markdown(
         """
-        Aqosoul AzwarAI implements the four-descriptor **ESOL** equation published by John S. Delaney (2004):
+        AquaSol implements the four-descriptor **ESOL** equation published by John S. Delaney (2004):
 
         `logS = 0.16 − 0.63(cLogP) − 0.0062(MW) + 0.066(RB) − 0.74(AP)`
 

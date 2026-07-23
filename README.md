@@ -1,6 +1,6 @@
-# Aqosoul AzwarAI — Solubility Prediction App
+# AquaSol — Solubility Prediction App
 
-A deployment-ready Streamlit application by [AzwarAI](https://azwarai.com) that estimates aqueous solubility directly from a molecular SMILES string. It implements the interpretable four-descriptor ESOL equation published by Delaney and calculates descriptors with RDKit.
+A deployment-ready Streamlit application that estimates aqueous solubility directly from a molecular SMILES string. It implements the interpretable four-descriptor ESOL equation published by Delaney and calculates descriptors with RDKit.
 
 ## Features
 
@@ -67,13 +67,13 @@ pytest -q
 4. Deploy. Streamlit installs the packages in `requirements.txt` automatically.
 
 For a memorable URL, open **Manage app → Settings → General** and request
-`aqosoul-azwarai.streamlit.app` (subject to availability).
+`aquasol.streamlit.app` (subject to availability).
 
 ## Deploy on your own server
 
 The repository includes a production Docker Compose setup with Caddy handling HTTPS automatically.
 
-1. Point an `A`/`AAAA` DNS record for `aqosoul.azwarai.com` to the server.
+1. Point an `A`/`AAAA` DNS record for `aquasol.azwarai.com` to the server.
 2. Copy `.env.example` to `.env` and confirm the domain.
 3. Allow inbound TCP ports 80 and 443.
 4. Run `docker compose up -d --build`.

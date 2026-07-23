@@ -1,4 +1,4 @@
-# Self-host Aqosoul AzwarAI
+# Self-host AquaSol
 
 This setup runs the Streamlit application in one container and Caddy in another. Caddy obtains and renews a public TLS certificate automatically when the domain points to the server and ports 80/443 are reachable.
 
@@ -15,7 +15,7 @@ Create an `A` record:
 
 ```text
 Type: A
-Name: aqosoul
+Name: aquasol
 Value: YOUR_SERVER_PUBLIC_IPV4
 TTL: Auto
 ```
@@ -48,7 +48,7 @@ Do not expose port 8501 publicly. Compose binds it to server localhost for diagn
 docker compose ps
 docker compose logs --tail=100 app
 docker compose logs --tail=100 caddy
-curl -I https://aqosoul.azwarai.com
+curl -I https://aquasol.azwarai.com
 ```
 
 ## Update
